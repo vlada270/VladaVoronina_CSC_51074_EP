@@ -1,0 +1,142 @@
+{
+	"archive" : {},
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/libglad.a"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_compile_options",
+			"add_definitions",
+			"target_include_directories"
+		],
+		"files" : 
+		[
+			"/Users/vladavoronina/Desktop/de/code-skeleton-csc_51074_ep/deps/polyscope/deps/glad/src/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 4,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 40,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 73,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 24,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 16,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.0.sdk -fPIC"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-sign-compare"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-unknown-pragmas"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-unused-local-typedefs"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-Wno-catch-value"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 4,
+					"define" : "CMAKE_CURRENT_DIR=\"\""
+				},
+				{
+					"backtrace" : 5,
+					"define" : "USING_GNU"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 6,
+					"path" : "/Users/vladavoronina/Desktop/de/code-skeleton-csc_51074_ep/deps/polyscope/deps/glad/src/../include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"id" : "glad::@98233e3db7e177071371",
+	"name" : "glad",
+	"nameOnDisk" : "libglad.a",
+	"paths" : 
+	{
+		"build" : "deps/polyscope/deps/glad/src",
+		"source" : "/Users/vladavoronina/Desktop/de/code-skeleton-csc_51074_ep/deps/polyscope/deps/glad/src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "/Users/vladavoronina/Desktop/de/code-skeleton-csc_51074_ep/deps/polyscope/deps/glad/src/glad.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "STATIC_LIBRARY"
+}

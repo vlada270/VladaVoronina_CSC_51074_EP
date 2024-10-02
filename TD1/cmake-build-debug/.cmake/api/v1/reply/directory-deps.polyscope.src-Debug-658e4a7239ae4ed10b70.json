@@ -1,0 +1,64 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"/Users/vladavoronina/Desktop/de/code-skeleton-csc_51074_ep/deps/polyscope/src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 361,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 362,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"paths" : 
+			[
+				"lib/libpolyscope.a"
+			],
+			"targetId" : "polyscope::@d17fc2d76cb0cf7d3ca6",
+			"targetIndex" : 9,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "/usr/local/include/polyscope",
+			"paths" : 
+			[
+				{
+					"from" : "/Users/vladavoronina/Desktop/de/code-skeleton-csc_51074_ep/deps/polyscope/src/../include/polyscope/",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "deps/polyscope/src",
+		"source" : "/Users/vladavoronina/Desktop/de/code-skeleton-csc_51074_ep/deps/polyscope/src"
+	}
+}

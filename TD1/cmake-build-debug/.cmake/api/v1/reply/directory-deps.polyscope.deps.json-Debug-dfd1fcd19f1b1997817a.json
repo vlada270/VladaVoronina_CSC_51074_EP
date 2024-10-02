@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "deps/polyscope/deps/json",
+		"source" : "/Users/vladavoronina/Desktop/de/code-skeleton-csc_51074_ep/deps/polyscope/deps/json"
+	}
+}
