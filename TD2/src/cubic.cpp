@@ -70,12 +70,10 @@ public:
     */
     void eval_tangent(int i, MatrixXd &dX, float x)
     {
-        // Coefficients for the cubic polynomial in the i-th segment
         double b = a(4 * i + 1);
         double c = a(4 * i + 2);
         double d = a(4 * i + 3);
 
-        // Compute the derivative of the cubic spline (f'(x) = b + 2*c*x + 3*d*x^2)
         dX(i, 0) = 1;
         dX(i, 1) = b + 2 * c * x + 3 * d * x * x;
 
