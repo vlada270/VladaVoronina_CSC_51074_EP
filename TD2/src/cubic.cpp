@@ -76,7 +76,7 @@ public:
         double d = a(4 * i + 3);
 
         // Compute the derivative of the cubic spline (f'(x) = b + 2*c*x + 3*d*x^2)
-        dX(i, 0) = x;
+        dX(i, 0) = 1;
         dX(i, 1) = b + 2 * c * x + 3 * d * x * x;
 
     }
@@ -85,6 +85,7 @@ public:
     Evaluate function at time t
     */
     double eval_function(double t) {
+
         int n = V.rows();
         if (t > V(n-1, 0))
             return V(n-1, 1);
