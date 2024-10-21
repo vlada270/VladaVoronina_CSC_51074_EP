@@ -1,47 +1,54 @@
 #include "Eigen/Core"
+#include "Eigen/LU"
 
 using Eigen::MatrixXd;
 
-class HermiteInterpolation{
+class HermiteInterpolation {
 
-  MatrixXd solutionx;// solution for x
-  MatrixXd solutiony;// solution for y
-  MatrixXd steps;// points to interpolate
-  MatrixXd solvey;// left size of linear system
-  MatrixXd solvex;// left size of linear system
-  MatrixXd slopes;
-  MatrixXd W;
+    MatrixXd solutionx; // solution for x
+    MatrixXd solutiony; // solution for y
+    MatrixXd steps;     // points to interpolate
+    MatrixXd solvey;    // right side of linear system for y
+    MatrixXd solvex;    // right side of linear system for x
+    MatrixXd slopes;
+    MatrixXd W;
 
-  void solve_x(){
-    // complete here
-    
-  }
+    /*
+    Solve for the x(t) cubic polynomial coefficients
+    */
+    void solve_x() {
+    }
 
-  void solve_y(){
-    // complete here
-    
-  }
+    /*
+    Solve for the y(t) cubic polynomial coefficients
+    */
+    void solve_y() {
+    }
 
 public:
+    HermiteInterpolation() = default;
+    ~HermiteInterpolation() = default;
 
-  HermiteInterpolation() = default;
-  ~HermiteInterpolation() = default;
 
-  HermiteInterpolation(const MatrixXd &V1){
-    // complete here
-    
-  }
+    HermiteInterpolation(const MatrixXd &V1) {
+        // complete here
 
-  // complete linspace with corrdinates
-  void eval_function(MatrixXd &linspace){
-      // complete here
-  }
+    }
 
-  /*
-  Evaluate tangent at step i
-  */
-  void eval_tangent(int i, MatrixXd& dX)
-  {
-    // complete here
-  }
+    /*
+    Evaluate function at parameter t (generate interpolated points)
+    */
+    void eval_function(MatrixXd &linspace) {
+        // complete here
+
+    }
+
+    /*
+    Evaluate tangent at step i
+    */
+    void eval_tangent(int i, MatrixXd& dX)
+    {
+        // complete here
+    }
 };
+

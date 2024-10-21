@@ -135,7 +135,7 @@ void callback(){
 
       for (size_t i = 0; i < resolution; i++) {
         double time = linspace(i, 0);
-        linspace(i, 1) = interp_lagrange.eval_function(time);
+        linspace(i, 1) = interp_cubic.eval_function(time);
         Vector3d pt = Vector3d(linspace(i, 0), linspace(i, 1), 0);
         points.push_back(pt);
         if(i<resolution-1){
