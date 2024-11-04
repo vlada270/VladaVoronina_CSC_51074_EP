@@ -86,7 +86,7 @@ void test1()
   std::vector<std::array<double, 3>> colors;
   util::add_curve(plot, pts_for_curve_network, edges_for_network,colors);
   util::add_curve(V1, pts_for_curve_network, edges_for_network,colors, {1.0, 0.0, 0.0});
-  // util::draw_control_polygon(V1);
+  //util::draw_control_polygon(V1);
   psCurve = polyscope::registerCurveNetwork("Bezier Curve", pts_for_curve_network,edges_for_network);
   polyscope::getCurveNetwork("Bezier Curve")->addEdgeColorQuantity("Coloring Curve", colors)->setEnabled(true);
 }

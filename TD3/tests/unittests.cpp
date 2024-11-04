@@ -4,7 +4,7 @@
 #include <Eigen/Core>
 #include "igl/readPLY.h"
 #include "../src/Bezier.h"
-#include "../src/Util.h"
+//#include "../src/Util.h"
 
 Eigen::MatrixXd V1;
 Eigen::MatrixXi F1;

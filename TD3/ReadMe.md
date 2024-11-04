@@ -74,11 +74,11 @@ vector<MatrixXd> subdivide(const MatrixXd &V, double t)
 }
 ```
 
-This function should return a `vector` of 2 Bézier curves, each represented by a `MatrixXd`.
+This function should return a `std::vector` containing 2 Bézier curves, each represented by a `MatrixXd`.
 
 **Remark**: The function should compute the two Bézier curves using a recursive approach.
 
-For a cubic Bézier curve, you will obtain 2 curves, each with fewer control points than the input curve. The subdivided Bézier curves must be returned in a vector. If the control polygon has 4 points, the function should return a vector of size 2. Each vector contains a 2x4 matrix.
+For a cubic Bézier curve, you will obtain 2 curves, each with fewer control points than the input curve. The subdivided Bézier curves must be returned in a vector. If the control polygon has 4 points, the function should return a vector of size 2 containing 2 matrices with 4 rows.
 
 ---
 ![Task3](../imgs/TD3-Task3-subdivision.png)
@@ -96,7 +96,7 @@ MatrixXd subdivision_plot(const MatrixXd &V, int k)
 ```
 ![Task4](../imgs/TD3-Task5.png)                       
                       
-that must return a MatrixXd storing the concatenation of all vertices of the control points of all the 2k curves, obtained subdividing the curve C(t).
+that must return a MatrixXd storing the concatenation of all vertices of the control points of all the 2k curves, obtained subdividing the curve $C(t)$.
 
 Use the test4() function to check your implementation.
 
