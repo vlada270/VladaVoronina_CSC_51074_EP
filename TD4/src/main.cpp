@@ -44,11 +44,45 @@ double tt = 0.0;
 float timestep = 0.001;
 
 
-void updateColor(Eigen::VectorXd &C, double t = 0.0){
-	C = Eigen::VectorXd::Zero(V.rows());	
-	// TODO: Implement the time-dependent color update logic here
-	
+//void updateColor(Eigen::VectorXd &C, double t = 0.0){
+//	C = Eigen::VectorXd::Zero(V.rows());
+//	// TODO: Implement the time-dependent color update logic here
+//    // Time-dependent color logic
+//    for (int i = 0; i < V.rows(); i++) {
+//        // Example: sinusoidal color change based on vertex height and time
+//        double height = V(i, 2); // Assuming Z-axis represents height
+//        C(i) = V(i, 2) + std::sin(t);
+//    }
+//
+//}
+void updateColor(Eigen::VectorXd &C, double t = 0.0) {
+    // Initialize color values to zero
+    C = Eigen::VectorXd::Zero(V.rows());
+
+    // Parameters for dynamic behavior
+    double frequency = 2.0;   // Base frequency
+    double amplitude = 1.0;   // Amplitude of the wave
+    double speed = 0.5;       // Speed of wave propagation
+
+    // Dynamic color logic
+    for (int i = 0; i < V.rows(); i++) {
+        // Extract vertex coordinates
+        double x = V(i, 0);
+        double y = V(i, 1);
+        double z = V(i, 2); // Assuming Z is the height
+
+        // Combine spatial and temporal effects
+        double wave = std::sin(frequency * (x + y + z) + speed * t);
+
+        // Add more dynamics: mix height and radius-based effects
+        double radius = std::sqrt(x * x + y * y); // Distance from origin
+        double dynamicPattern = amplitude * wave + 0.5 * std::cos(frequency * radius + t);
+
+        // Assign the computed value to the color vector
+        C(i) = dynamicPattern;
+    }
 }
+
 
 void updateColorGaussianCurvature(Eigen::VectorXd &C){
 	C = meshptr->compute_gaussian_curvature();

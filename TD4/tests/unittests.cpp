@@ -7,6 +7,8 @@
 #include "igl/gaussian_curvature.h"
 #include "igl/cotmatrix.h"
 #include "igl/massmatrix.h"
+#include "igl/cotmatrix.h"
+#include "../src/LaplacianMesh.h"
 
 Eigen::MatrixXd V0;
 Eigen::MatrixXi F0;
@@ -24,7 +26,7 @@ Eigen::MatrixXi F0;
 
 
 Mesh test_mesh = Mesh(V0,F0);
-
+LaplacianMesh LapMesh = LaplacianMesh(V0, F0);
 
 TEST(MeshTest, CheckBasicSanityMesh)
 {
@@ -135,12 +137,59 @@ TEST(HalfEdgeTest, SanityCheckPrimalFace) {
 }
 
 
-TEST(LaplacianTest,CheckWithLibigl) {
-    //TODO
-    // Use the cotmatrix from libigl to compare with the dirichlet matrix from the mesh
+//TEST(LaplacianTest,CheckWithLibigl) {
+//    //TODO
+//    // Use the cotmatrix from libigl to compare with the dirichlet matrix from the mesh
+//}
+TEST(LaplacianTest, CheckWithLibigl) {
+    // Step 1: Compute cotangent matrix using libigl
+    SpMat L_check;
+    igl::cotmatrix(V0, F0, L_check);
+
+    // Step 2: Iterate over non-zero entries and compare with LaplacianMesh
+    for (int k = 0; k < L_check.outerSize(); ++k) {
+        for (Eigen::SparseMatrix<double>::InnerIterator it(L_check, k); it; ++it) {
+            int i = it.row();
+            int j = it.col();
+
+            // Retrieve values
+            double entry_libigl_ij = it.value();
+            double your_entry_ij = LapMesh.L.coeffRef(i, j);
+
+            // Assert near equality
+            EXPECT_NEAR(entry_libigl_ij, your_entry_ij, 1e-8)
+                                << "Mismatch at (" << i << ", " << j << "): "
+                                << "Libigl = " << entry_libigl_ij << ", Yours = " << your_entry_ij;
+        }
+    }
 }
 
+//
+//TEST(AreaMatrixTest, CheckWithLibigl) {
+//    //TODO
+//    // Use the massmatrix from libigl to make sure that the calculation of the voronoi area works
+//}
+
 TEST(AreaMatrixTest, CheckWithLibigl) {
-    //TODO
-    // Use the massmatrix from libigl to make sure that the calculation of the voronoi area works
+    // Step 1: Compute area matrix using libigl
+    SpMat A_check;
+    igl::massmatrix(V0, F0, igl::MASSMATRIX_TYPE_VORONOI, A_check);
+
+    // Step 2: Iterate over non-zero entries and compare with LaplacianMesh
+    for (int k = 0; k < A_check.outerSize(); ++k) {
+        for (Eigen::SparseMatrix<double>::InnerIterator it(A_check, k); it; ++it) {
+            int i = it.row();
+            int j = it.col();
+
+            // Retrieve values
+            double entry_libigl_ij = it.value();
+            double your_entry_ij = LapMesh.A.coeffRef(i, j);
+
+            // Assert near equality
+            EXPECT_NEAR(entry_libigl_ij, your_entry_ij, 1e-8)
+                                << "Mismatch at (" << i << ", " << j << "): "
+                                << "Libigl = " << entry_libigl_ij << ", Yours = " << your_entry_ij;
+        }
+    }
 }
+
