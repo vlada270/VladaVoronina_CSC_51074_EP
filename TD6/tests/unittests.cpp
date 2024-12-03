@@ -8,6 +8,8 @@
 #include "igl/cotmatrix.h"
 #include "igl/massmatrix.h"
 
+Eigen::MatrixXd V0;
+Eigen::MatrixXi F0;
 
 TEST(SanityCheckDirichlet,size_check){
     #ifdef USING_GNU
@@ -39,8 +41,12 @@ TEST(AreaCheck, AreaCheck_Ar_Test){
     //TODO
     // Build yourself a 2D parameterization of a square with a sidelength of 1.68
     // Put for instance one vertex at (0.0) and then use 100 triangles to build a triangulation of the square
-    // Then check that the area, that you can compute by hand matches 
+    // Then check that the area, that you can compute by hand matches
     // flattened_vector_square.transpose()*Area*flattened_vector_square
 
+
 }
+
+
+
 
