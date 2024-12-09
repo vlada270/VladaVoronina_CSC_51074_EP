@@ -43,6 +43,7 @@ public:
     MatrixXi getFaces();
     
     void print(int verbosity);
+    double calculateGaussianCurvature(int v);
 
 private:
 

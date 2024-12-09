@@ -161,15 +161,15 @@ int main(int argc, char *argv[])
 	// --- Load the meshes ---
 	//------------------------
 	
-	// std::string filename = "../../data/letter_a.off";
+	//std::string filename = "../../data/letter_a.off";
 
 	if (argc<2) {
 
 		// std::string filename = "../../data/bunny_new.off";
 		#ifdef USING_GNU
 				std::cout << "Using GNU compiler. Loading GNU-specific meshes." << std::endl;
-				igl::readOFF("../data/letter_a.off", V, F);
-				std::string filename = "../data/letter_a.off";
+				igl::readOFF("../data/icosahedron.off", V, F);
+				std::string filename = "../data/icosahedron.off";
 				// Load GNU-specific meshes
 		#elif defined(USING_MSVC)
 				igl::readOFF("../../../../data/letter_a.off", V, F);
