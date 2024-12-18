@@ -16,7 +16,7 @@ Eigen::MatrixXi F0;
 TEST(CHECK_GRADIENT,ElectricTest){
 	#ifdef USING_GNU
 	// std::cout << "Using GNU compiler. Loading GNU-specific meshes." << std::endl;
-	int i0 = igl::readOFF("../data/bunny_new.off", V0, F0);
+	int i0 = igl::readOBJ("../data/bunny_new.off", V0, F0);
 // Load GNU-specific meshes
 #elif defined(USING_MSVC)
 	int i0 = igl::readOBJ("../../../../data/bunny_new.off", V0, F0);
